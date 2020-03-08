@@ -5,14 +5,14 @@ import './App.css';
 import './w3school.css';
 import Menu from './components/MenuComponent';
 
-import { DISHES } from './shared/dishes';
+import { CONFIG } from './shared/config';
 
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dishes: DISHES
+      dishes: CONFIG
     };
   }
 render(){
@@ -21,7 +21,7 @@ render(){
       
      <div class ="row row-header">
       <div class="col-sm-1">
-      <img clas="img-responsive" src="logo192.png" width = "100%"  ></img></div>
+      <img clas="img-responsive" src="assets/images/pro1.png" width = "50%"  ></img></div>
       <div class="col-sm-2"> <a href='/index.html'  class='title-font' title='Home'>home</a></div>
       <div class="col-sm-2"> <a href='/index.html' class='title-font' title='List'>group</a>
       </div>

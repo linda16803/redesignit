@@ -10,15 +10,15 @@ export const CONFIG =
          },
          {
             id: 2,
-            name:'Upload',
-            image: 'assets/images/pro1.png',
+            name:'users',
+            image: 'assets/images/broadcast.jpg',
             description:'A unique combination of Indian Uthappam (pancake) .',
             comments: []
                
              },
         {
             id: 3,
-            name:'Upload',
+            name:'API',
             image: 'assets/images/pro1.png',
             description:'A unique combination of Indian Uthappam , .',
             comments: []
@@ -33,8 +33,8 @@ export const CONFIG =
                 },
          {
             id: 5,  
-            name:'Upload',
-            image: 'assets/images/pro1.png',
+            name:'mongo',
+            image: 'assets/images/phone1.png',
             description:'A unique combination of Indian Uthappam .',
             comments: [
                 
