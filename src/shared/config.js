@@ -26,7 +26,7 @@ export const CONFIG =
         },
         {
             id: 4,
-            name:'Upload',
+            name:'History',
             image: 'assets/images/pro1.png',
             description:'A unique combination of Indian Uthappam  ',            
             comments: []
