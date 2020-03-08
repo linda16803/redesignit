@@ -1,0 +1,88 @@
+.toggle-selector, 
+.form-field.toggle-selector, 
+.toggle-selector ul, 
+.toggle-selector ul li {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;    
+}
+.toggle-selector {
+    position: relative;
+    &:focus {
+        outline: none;
+    }
+    ul {
+        list-style: none;
+        &:focus {
+            outline: none;
+        }
+      li {
+          margin: 0em;
+          position: relative;
+      }
+    }
+    input[type=radio]:checked + label {
+        background: rgba(0, 0, 0, 0.35);
+    }
+    input[type=radio] + label {
+        padding: 0.25em 1em;
+        border-radius: 1em;
+        cursor: pointer;
+    }
+    ul li input {
+        display: none;
+    }
+}
+
+/* small-to-medium-only */
+@include respond-to(small-and-medium-only) {
+  .toggle-selector {
+    margin-bottom: 0.5em;
+    ul:after {
+        font-family: "pronghorn-font";
+        content: '\E87F';
+        color: white;
+        font-size: 1.5em;
+        line-height: 1.15em;
+        padding: 0 0.5em;
+        position: absolute;
+        right: 0;
+        top: 0;
+        cursor: pointer;
+    }
+    &.show-menu {
+      outline: none;
+      border-radius: 1em;
+      background: rgba(0, 0, 0, 0.15);
+      input[type=radio] + label {
+        display: block;
+      }
+    }
+    input[type=radio] + label {
+      display: none;
+      padding: 0.25em 2em 0.25em 1em;
+    }
+    input[type=radio]:checked + label {
+      display: block;
+    }
+  }
+}
+/* large-size */
+@include respond-to(large-up) {
+  .toggle-selector, 
+  .toggle-selector ul, 
+  .toggle-selector ul li {
+      box-sizing: border-box;
+      display: inline-block;
+      padding: 0;
+      margin: 0;    
+  }
+  .toggle-selector {
+    li {
+      margin: 0 0.25em;
+    }
+    input[type=radio] + label {
+        display: block;
+    }
+  }
+}

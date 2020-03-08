@@ -1,0 +1,44 @@
+doctype html
+head
+  meta(name="viewport" content="width=device-width; initial-scale=1.0")
+  meta(name="apple-mobile-web-app-capable" content="yes")
+  meta(name="apple-mobile-web-app-status-bar-style" content="black")
+  title Pronghorn
+  
+  block scripts
+    script(src="../lib/utilities/index.js")
+    script(src="../lib/angular/angular.min.js")
+    script(src="../scripts/login.js")
+
+  block links
+    link(rel="stylesheet" href="../style/structure.css")
+    link(rel="stylesheet" href="../style/input_elements.css")
+    link(rel="stylesheet" href="../style/login.css")
+    link(rel="stylesheet" href="../style/custom.css")
+
+body(ng-app="PronghornLogin")
+  div.page
+    
+      div.login-panel(ng-controller="LoginController")
+          div#logo
+            img(src="./img/logo.svg")
+
+          form#login_form
+
+            div.form-field#input_username
+              label(for="username") Username
+              input(ng-model="username" type="text" placeholder="Username" name="username" autofocus autocapitalize="off" autocorrect="off")
+            div.form-field#input_password
+              label(for="password") Password
+              input(ng-model="password" type="password" placeholder="Password" name="password")
+            
+            div#output_message
+                h3(ng-if="loginMessage !== ''") {{loginMessage}}
+
+            div.form-actions
+              button.primary-action#sign_in(ng-click='submit(username,password)') 
+                label Sign in
+
+      div#warning
+
+      div.copyright © 2014-2017 Itential. All Rights Reserved.

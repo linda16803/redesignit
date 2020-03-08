@@ -1,0 +1,29 @@
+extends layout
+
+block append scripts
+  script(src="../scripts/props_config.js")
+
+block append links
+  link(rel="stylesheet" href="/style/input_elements.css")
+  link(rel="stylesheet" href="/style/props_config.css")
+  
+block append content
+
+  div.content
+    div.title-bar
+      h3.title Pronghorn Properties
+      div.form-field.toggle-selector
+        ul#tab-list
+
+    div.workspace
+      div.input-pane
+          textarea#input-area(type="text" onkeyup="enableButtons();" )
+
+      div.form-actions
+        button#reset(title="Reset" onclick="reset();") 
+          label Reset
+
+        button.primary-action.save#save(title="Save" onclick="save();") 
+          label Save
+
+      div.adapter-msg Please configure adapters via the "Adapters Menu" under settings.

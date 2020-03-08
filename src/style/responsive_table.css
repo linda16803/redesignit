@@ -1,0 +1,197 @@
+table.responsive {
+  width: 100%; }
+  table.responsive td button:not(.primary-action):not(.secondary-action) {
+    padding: 0 0.25em;
+    margin: 0;
+    background: none;
+    color: none;
+    border: none; }
+    table.responsive td button:not(.primary-action):not(.secondary-action):hover:before {
+      color: #0094D9; }
+  table.responsive td button.primary-action,
+  table.responsive td button.secondary-action {
+    min-height: 0;
+    padding: 0.25em 1em;
+    font-size: 0.75em; }
+  table.responsive td.actions {
+    text-align: right; }
+  table.responsive tbody tr {
+    cursor: pointer; }
+  table.responsive tbody.group tr {
+    background-color: rgba(0, 0, 0, 0.05); }
+  table.responsive tbody.group tr.group-header {
+    background-color: rgba(0, 0, 0, 0.1); }
+    table.responsive tbody.group tr.group-header:hover {
+      background-color: rgba(0, 0, 0, 0.1); }
+    table.responsive tbody.group tr.group-header td {
+      border-radius: 0;
+      vertical-align: middle; }
+      table.responsive tbody.group tr.group-header td label {
+        vertical-align: middle;
+        cursor: pointer; }
+        table.responsive tbody.group tr.group-header td label:before {
+          font-family: "pronghorn-font";
+          content: '\E87F';
+          font-size: 1.5em;
+          vertical-align: middle;
+          padding: 0 0.25em; }
+      table.responsive tbody.group tr.group-header td:before {
+        content: none; }
+  table.responsive tbody.group tr.group-footer {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 0; }
+    table.responsive tbody.group tr.group-footer td {
+      font-size: 0.1em; }
+      table.responsive tbody.group tr.group-footer td:before {
+        content: none; }
+  table.responsive tbody.hide tr.group-header td label:before {
+    content: '\E87C'; }
+  table.responsive tbody.hide tr:not(.group-header) {
+    display: none; }
+  table.responsive th {
+    position: relative; }
+    table.responsive th label {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-weight: normal;
+      font-size: 0.8em; }
+  table.responsive .column-filters input:not([type=checkbox]), table.responsive .column-filters select {
+    padding: 0.25em 0.5em; }
+  table.responsive .column-filters input::-ms-clear {
+    display: none;
+    height: 0em;
+    width: 0em; }
+  table.responsive .column-filters .clear-filter {
+    display: none;
+    background: transparent;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: 0.4em;
+    padding: 0em; }
+    table.responsive .column-filters .clear-filter label {
+      display: none; }
+    table.responsive .column-filters .clear-filter:before {
+      font-family: "pronghorn-font";
+      content: '\e83d';
+      font-size: 1.25em;
+      color: #bbb;
+      vertical-align: middle; }
+  table.responsive .column-filters th.filtered .clear-filter {
+    display: inline-flex; }
+
+/*** Breakpoints ***/
+/* small-to-medium-only */
+@media screen and (min-width: 0em) and (max-width: 50em) {
+  #show-filters {
+    padding: 0.25em 0.5em; }
+    #show-filters label {
+      font-size: 0.75em;
+      color: #999; }
+    #show-filters:before {
+      font-family: "pronghorn-font";
+      content: '\e82d';
+      font-size: 1.25em;
+      color: #999;
+      vertical-align: middle;
+      padding-right: 0.25em; }
+
+  table.show-filters tr.column-filters {
+    display: block; }
+
+  table.hide-filters tr.column-filters {
+    display: none; }
+
+  table.responsive thead tr {
+    display: none; }
+    table.responsive thead tr.column-filters {
+      border-radius: 0.5em;
+      background-color: #eee;
+      padding: 0.5em; }
+      table.responsive thead tr.column-filters input:not([type=checkbox]), table.responsive thead tr.column-filters select {
+        width: 10em; }
+  table.responsive th {
+    display: inline-block; }
+  table.responsive td {
+    display: block; }
+  table.responsive tbody tr {
+    display: block;
+    border-radius: 0.5em;
+    padding: 0.5em; }
+    table.responsive tbody tr:hover {
+      background-color: rgba(0, 0, 0, 0.075); }
+  table.responsive tr.column-filters th:before,
+  table.responsive td:not(.select):before {
+    content: attr(data-label) ": ";
+    color: rgba(0, 0, 0, 0.25);
+    font-weight: bold;
+    font-size: 0.9em; } }
+/* large-size */
+@media screen and (min-width: 50em) {
+  #show-filters {
+    display: none; }
+
+  table.responsive {
+    table-layout: fixed;
+    border-spacing: 0 0.5em; }
+    table.responsive input:not([type=checkbox]), table.responsive select {
+      width: 100%; }
+    table.responsive .select input[type=checkbox] {
+      margin: 0.4em;
+      display: block; }
+    table.responsive .column-names {
+      line-height: 1.8em; }
+      table.responsive .column-names th {
+        bottom: -0.35em;
+        border-color: transparent;
+        border-style: solid;
+        border-width: 0 0 0.25em; }
+        table.responsive .column-names th.sort-by label {
+          cursor: pointer;
+          padding: 0 1.25em; }
+          table.responsive .column-names th.sort-by label:after {
+            font-family: "pronghorn-font";
+            font-size: 1.6em;
+            color: #999;
+            vertical-align: middle;
+            position: absolute;
+            right: 0.1em; }
+        table.responsive .column-names th.sort-by:hover {
+          border-color: #DDD; }
+          table.responsive .column-names th.sort-by:hover label:after {
+            content: '\E87F'; }
+        table.responsive .column-names th.sort-by.descending {
+          border-color: #0094D9; }
+          table.responsive .column-names th.sort-by.descending label:after {
+            content: '\E87F'; }
+        table.responsive .column-names th.sort-by.ascending {
+          border-color: #F05E22; }
+          table.responsive .column-names th.sort-by.ascending label:after {
+            content: '\E87E'; }
+    table.responsive .column-filters input:not([type=checkbox]), table.responsive .column-filters select {
+      background-color: #eee;
+      border-collapse: collapse;
+      border-color: #eee;
+      border-style: solid;
+      border-width: 0; }
+    table.responsive tbody tr:hover {
+      background-color: transparent; }
+    table.responsive tbody tr:hover td {
+      background-color: rgba(0, 0, 0, 0.075); }
+    table.responsive td, table.responsive th {
+      padding: 0.25em;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+      table.responsive td.select, table.responsive th.select {
+        width: 2em; }
+    table.responsive td:first-child {
+      border-radius: 1em 0 0 1em;
+      padding-left: 0.5em; }
+    table.responsive td:last-child {
+      border-radius: 0 1em 1em 0;
+      padding-right: 0.5em; } }
+
+/*# sourceMappingURL=responsive_table.css.map */

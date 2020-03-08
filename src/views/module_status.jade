@@ -1,0 +1,95 @@
+extends layout
+
+block append scripts
+  script(src="../lib/angular/angular.min.js")
+  script(src="../lib/angular-sanitize/angular-sanitize.js")
+  script(src="../lib/angular-translate/dist/angular-translate.min.js")
+  script(src="../lib/angular-translate/dist/angular-translate-loader-url/angular-translate-loader-url.min.js")
+  script(src="/lib/angular-app/index_slim.js")
+  script(src="../scripts/module_status.js")
+
+block append links
+  link(rel="stylesheet" href="/style/input_elements.css")
+  link(rel="stylesheet" href="/style/responsive_table.css")
+  link(rel="stylesheet" href="/style/module_status.css")
+  
+block append content
+  div.content(ng-app="Pronghorn" ng-controller="ModuleStatus")
+    div.title-bar
+        h3.title {{type}}: {{application}}
+        div.actions
+          button.close(title="Close" onclick="closePage();")
+            label Close
+    div.core
+      table.responsive
+          thead
+            tr.column-names
+              th(ng-repeat="col in adapterCols" ng-if="isAdapter")
+                label {{col.display}}
+              th(ng-repeat="col in appCols" ng-if="!isAdapter")
+                label {{col.display}}
+
+          tbody
+            tr
+              td.status-column(data-label="Status")
+                span(class="{{state ? 'status online' : 'status offline'}}"
+                      title="{{state ? 'Application Online' : 'Application Offline'}}")
+                  label {{state ? 'online' : 'offline'}}
+              td.status-column(data-label="Connection" ng-if="isAdapter")
+                span(class="{{connection ? 'status online' : 'status offline'}}"
+                      title="{{connection ? 'Application Online' : 'Application Offline'}}")
+                  label {{connection ? 'online' : 'offline'}}
+              td(data-label="Name") {{application}}
+              td(data-label="Version") {{version || ''}}
+              td(data-label="Pid") {{pid || ''}}
+              td(data-label="Memory") {{bytesToPrettyMem(memory) || ''}}
+              td(data-label="CPU") {{displayCpu}}%
+              td(data-label="Uptime") {{secondsToPrettyDate(uptime, 'seconds')}}
+              td.actions(data-label="Actions")
+                button.restart(ng-click="restartModule()"
+                                ng-if="state && !isProcessing"
+                                ng-disabled='hideActions'
+                                title="Restart")
+                  label Restart
+                button.run(ng-click="startModule()"
+                            ng-if="!state && !isProcessing"
+                            ng-disabled='hideActions'
+                            title="Run")
+                  label Run
+                button.stop(ng-click="stopModule()"
+                              ng-if="state && !isProcessing"
+                              ng-disabled='hideActions'
+                              title="Stop")
+                  label Stop
+                button.processing(ng-if="isProcessing" title="Processing")
+    div.core
+      h3 Log Settings
+      div.container.horizontal
+        div.form-field
+            label(for="file") File Log Level: 
+            select(id="file")
+              option error
+              option warn
+              option info
+              option debug
+              option trace
+              option spam
+        div.form-field
+            label(for="console") Console Log Level:
+            select(id="console")
+              option error
+              option warn
+              option info
+              option debug
+              option trace
+              option spam
+        div.form-field
+            label(for="syslog") Syslog Log Level:
+            select(id="syslog" ng-disabled="!syslog_level")
+              option error
+              option warning
+              option info
+              option debug
+        div.actions
+            button.save.primary-action(ng-click="changeLogLevels()" title="Update")
+                label Update

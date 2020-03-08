@@ -1,0 +1,28 @@
+md-dialog(aria-label="Add User" style="width:350px; height:400px")
+	md-toolbar
+		div.md-toolbar-tools
+			h2 {{'%NEW_USER%' | translate}}
+			span(flex)
+	form(name="form")
+		md-input-container
+			label {{'%USERNAME%' | translate}}
+			input(autofocus ng-model="newUserName" name="username" ng-pattern="/^[a-zA-Z0-9][a-zA-Z0-9]{3,11}$/" ng-minlength="6" ng-maxlength="12" required)
+			div(ng-messages="form.username.$invalid" ng-show="form.username.$invalid")
+				div(ng-message) {{'%LENGTH_RULE_6-12%' | translate}}
+		md-input-container
+			label {{'%PASSWORD%' | translate}}
+			input(type="password" ng-model="newUserPassword" name="password" ng-pattern="/^(?=.*[!@#$_])(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])[a-zA-z0-9!@#$_.]{4,39}$/" ng-minlength="8" ng-maxlength="40" required)
+			div(ng-messages="form.password.$invalid" ng-show="form.password.$error.maxlength || form.password.$error.minlength || form.password.$error.required")
+				div(ng-message) Password must be between 8 and 40 characters
+			div(ng-messages="form.password.$invalid.pattern" ng-show="form.password.$error.pattern")
+				span(ng-message) Not strong enough or contains invalid characters
+
+		md-input-container
+			label {{'%VERIFY_PASSWORD%' | translate}}
+			input(type="password" ng-model="newUserPasswordVerify" name="passwordVerify" compare-to="newUserPassword")
+			div(ng-messages="form.passwordVerify.$error.compareTo && form.password.$valid" ng-show="form.passwordVerify.$error.compareTo && form.password.$valid")
+				div(ng-message) Passwords do not match	
+
+	div(style="position:absolute; bottom: 0px" class="md-actions" layout="row")
+		md-button(style="margin-right:10px" ng-click="cancel()" class="md-raised") {{'%CANCEL%' | translate}}
+		md-button(style="margin-left:10px" ng-click="add()" class="md-raised md-warn" ng-disabled="form.$invalid") {{'%ADD%' | translate}}

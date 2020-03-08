@@ -1,0 +1,33 @@
+
+
+/* This is a file for simple CSS customization such as switching the logo, etc. */
+/* Should you need to do more customization like color swaps, etc, we recommend */
+/* editing the _variables.scss file and using SASS/SCSS to compile it into CSS. */
+/* More information on this can be found at http://sass-lang.com/               */
+
+
+.login-panel #logo img {
+    display: none; 
+}
+.login-panel #logo { 
+    background: transparent url("/custom/img/att-login-logo-w.png") no-repeat scroll center center;
+    background-size: contain;
+    height: 50%;
+    margin: 0 auto 1em;
+    max-height: 20em;
+    max-width: 80%;
+    min-height: 10em;
+    width: 100%;
+}
+
+header #logo img {
+    display: none;
+}
+header #logo {
+    background: transparent url("/custom/img/att-logo-white.png") no-repeat scroll center center;
+    background-size: contain;
+    width: 10em;
+    height: 2em;
+    margin-top: 8px;
+}
+

@@ -1,0 +1,105 @@
+extends layout
+
+block append scripts
+  script(src="../lib/angular/angular.min.js")
+  script(src="../lib/jquery/jquery.min.js")
+  script(src="../lib/angular-aria/angular-aria.js")
+  script(src="../lib/angular-animate/angular-animate.js")
+  script(src="../lib/angular-material/angular-material.js")
+  script(src="../lib/angular-material-data-table/dist/md-data-table.min.js")
+  script(src="../lib/angular-color-picker/angular-color-picker.js")
+  script(src="../lib/angular-sanitize/angular-sanitize.js")
+  script(src="../lib/angular-translate/dist/angular-translate.min.js")
+  script(src="../lib/angular-translate/dist/angular-translate-loader-url/angular-translate-loader-url.min.js")
+  script(src="/lib/angular-app/index.js")
+  script(src="../scripts/provider_config.js")
+  
+  //- jqWidgets components
+  script(src="/lib/rodeo-ui/vendor/jqwidgets/jqwidgets/jqxcore.js")
+  script(src="/lib/rodeo-ui/vendor/jqwidgets/jqwidgets/jqxdata.js")
+  script(src="/lib/rodeo-ui/vendor/jqwidgets/jqwidgets/jqxbuttons.js")
+  script(src="/lib/rodeo-ui/vendor/jqwidgets/jqwidgets/jqxcheckbox.js")
+  script(src="/lib/rodeo-ui/vendor/jqwidgets/jqwidgets/jqxdropdownlist.js")
+  script(src="/lib/rodeo-ui/vendor/jqwidgets/jqwidgets/jqxinput.js")
+  script(src="/lib/rodeo-ui/vendor/jqwidgets/jqwidgets/jqxscrollbar.js")
+  script(src="/lib/rodeo-ui/vendor/jqwidgets/jqwidgets/jqxlistbox.js")
+  script(src="/lib/rodeo-ui/vendor/jqwidgets/jqwidgets/jqxdropdownlist.js")
+  script(src="/lib/rodeo-ui/vendor/jqwidgets/jqwidgets/jqxdatatable.js")
+  script(src="/lib/rodeo-ui/vendor/jqwidgets/jqwidgets/jqxtreegrid.js")
+  script(src="/lib/rodeo-ui/vendor/jqwidgets/jqwidgets/jqxgrid.js")
+  script(src="/lib/rodeo-ui/vendor/jqwidgets/jqwidgets/jqxangular.js")
+
+  //- Ace componenet
+  script(src="/lib/ace-builds/src-noconflict/ace.js")
+
+block append links
+  link(rel="stylesheet" href="../lib/angular-material/angular-material.css")
+  link(rel="stylesheet" href="../lib/angular-material-data-table/dist/md-data-table.min.css")
+  link(rel="stylesheet" href="../lib/angular-color-picker/angular-color-picker.css")
+  link(rel="stylesheet" href="../style/config.css")
+  
+  //- Add jqWidgets style sheets
+  link(rel="stylesheet" href="/lib/rodeo-ui/vendor/jqwidgets/jqwidgets/styles/jqx.base.css")
+  link(rel="stylesheet" href="/lib/rodeo-ui/src/styles/rodeoUI.css")
+  link(rel="stylesheet" href="/lib/rodeo-ui/src/components/ph-dropdown-list/styles/rodeoUI-dropdown-list.css")
+  link(rel="stylesheet" href="/lib/rodeo-ui/src/components/ph-checkbox/styles/rodeoUI-checkbox.css")
+  link(rel="stylesheet" href="/lib/rodeo-ui/src/components/ph-text-input/styles/rodeoUI-text-input.css")
+  link(rel="stylesheet" href="/lib/rodeo-ui/src/components/ph-grid/styles/rodeoUI-tree-grid.css")
+  link(rel="stylesheet" href="../style/provider_config.css")
+
+block append content
+  div(ng-app="Pronghorn" ng-controller="ProviderConfig" flex ng-cloak style="height:calc(100% - 50px);")
+    section(layout="row" layout-fill flex)
+
+      //- Sidebar
+      md-sidenav(class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-xs')")
+        md-toolbar(layout='row' style="background-color:#3D93D3;")
+          span.md-toolbar-tools.fill-height(layout='row' flex) {{'%Adapter%' | translate}}
+
+          //- Add new provider
+          md-button(style="min-width: 10px; padding:0; margin:0;" aria-label="addProvider" ng-click="addProvider()")
+            md-icon(md-svg-src="../../lib/material-design-icons/content/svg/production/ic_add_circle_48px.svg")
+            md-tooltip {{'%ADD_NEW_ADAPTER%' | translate}}
+
+          //- Save current provider
+          md-button(style="min-width: 10px; padding-left: 0px; padding-right: 5px" aria-label="saveProvider" ng-disabled="!providerModified || (newProviderBool && !currentProvider.id)" ng-click="saveProvider()")
+            md-icon(md-svg-src="../../lib/material-design-icons/content/svg/production/ic_save_48px.svg")
+            md-tooltip {{'%SAVE_ADAPTER%' | translate}}
+        
+        //- List of existing providers and actions
+        md-content
+          input.provider-search(ng-model="providerSearch" placeholder="Search Adapters")
+          md-list(ng-class="{blurNav:newProviderBool}")
+            our-md-list-item(ng-repeat="provider in providers | filter:providerSearch | orderBy:1" ng-click="display(provider)" aria-label="provider")
+              div(class="md-list-item-text" ng-class="{selected:provider == currentProvider.id && !newProviderBool}" style="padding-left:5px; font-size:16px;")
+                p {{provider}}
+                  span(style="float:right")
+                    md-button(style="min-width: 10px; margin:0;" aria-label="cloneProvider" ng-click="cloneProvider(provider)")
+                        md-icon(md-svg-src="../../lib/material-design-icons/content/svg/production/ic_content_copy_48px.svg")
+                        md-tooltip {{'%CLONE_ADAPTER%' | translate}}
+                    md-button(style="min-width: 10px; margin:0 0 0 2px;" aria-label="editProvider" ng-click="editProvider(provider)")
+                        md-icon(md-svg-src="../../lib/material-design-icons/content/svg/production/ic_create_48px.svg")
+                        md-tooltip {{'%EDIT_ADAPTER%' | translate}}
+                    md-button(style="min-width: 10px; margin:0 5px 0 2px;" aria-label="deleteProvider" ng-click="deleteProvider(provider)")
+                        md-icon(md-svg-src="../../lib/material-design-icons/content/svg/production/ic_delete_48px.svg")
+                        md-tooltip {{'%DELETE_ADAPTER%' | translate}}
+
+      //- Existing provider edit page
+      md-content(layout="column" flex ng-show="showDetails")
+        md-table-container(ng-show="!newProviderBool")
+          div(style="margin:10px;")
+            div
+              div(style="display:inline-block; width:45px; color:grey;")
+                label id
+              div(style="display:inline-block; width:300px;")  
+                input(readonly ng-model="currentProvider.id" style="border:none; width:300px;border-bottom: 2.2px solid #999999; padding:0 0 7px 7px")
+            div
+              div(style="display:inline-block; width:45px; color:grey; margin-top:10px;")
+                label type
+              div(style="display:inline-block; width:300px;")  
+                input(readonly ng-model="currentProvider.type" style="border:none; width:300px;border-bottom: 2.2px solid #999999; padding:0 0 7px 7px")
+            div#editor-wrapper
+
+        //- Create new provider page
+        md-table-container(ng-show="newProviderBool")
+          div#new-editor(style="top:10px")

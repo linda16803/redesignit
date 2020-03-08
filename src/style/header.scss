@@ -1,0 +1,238 @@
+
+@import 'variables';
+
+
+header {
+    position: relative;
+    background:$header-color;
+    height: $header-height;
+    text-align: center;
+
+    a, input, button {
+    box-sizing: border-box;
+    }
+
+    #logo {
+        background: transparent url("/img/logo-bug.svg") no-repeat scroll center center;
+        display: inline-block;
+        margin: 0.25em;
+        height: 2.5em;
+        width: 2.5em;
+        img {
+            display: none;
+            height: 100%;
+        }
+    }
+
+    // Menu
+    nav { display: inline; }
+
+    ul { display: none; }
+    .show-menu > ul { display: block; }
+    
+    .show-menu > .menu-title, 
+    .show-menu > .menu-title:before {
+        color: $primary-accent-color;
+    }
+    
+    ul, li {
+        margin: 0;
+        padding: 0;
+        vertical-align: top;
+        z-index: 400;
+    }
+    .menu {
+        display: inline;
+        vertical-align: top;
+        ul {
+            list-style: none;
+        }
+        a {
+            display: inline-block;
+            color:white;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.9em;
+            padding: 1em;
+            white-space: nowrap;
+            :hover { color: $primary-accent-color; }
+        }
+        li {
+            display: block;
+            position: relative;
+            z-index: 10;
+            ul li a { 
+                background-color: #444;
+                padding-left: 2em;
+            }
+            > a {
+                display: block;
+                height: 100%;
+                width: 100%;
+                background-color: $header-color;
+                text-transform: uppercase;
+            }
+        }
+        &.main-menu, &.account-menu {
+            text-align: left;
+            > .menu-title, 
+            > .menu-title {
+                position: absolute;
+                padding: 1em;
+                z-index: 10;
+                top: 0;
+                display: inline-block;
+                height: 100%;
+                label { display: none; }
+            }
+        }
+        &.main-menu > .menu-title { left: 0; }
+        &.account-menu > .menu-title { right: 0; }
+        
+        &.main-menu > .menu-title:before, 
+        &.account-menu > .menu-title:before, 
+        .username:after, 
+        .home:before, 
+        .logout:before, 
+        .profile:before, 
+        .language:before,
+        .help:before {
+            display: inline-block;
+            font-family: "pronghorn-font";
+        }
+        &.main-menu > .menu-title:before {
+            content: '\e805';
+            font-size: 1.75em;
+            line-height: 0.8em;
+        }
+        &.account-menu > .menu-title:before {
+            content: '\e806';
+            font-size: 1.4em;
+            line-height: 0.7em;
+        }
+        .logout:before {
+            content: '\e802';
+            width: 1em;
+            padding-right: 0.75em;
+            text-align: center;
+        }
+        .profile:before {
+            content: '\e806';
+            width: 1em;
+            padding-right: 0.75em;
+            text-align: center;
+        }
+        .language:before {
+            content: '\e81a';
+            width: 1em;
+            padding-right: 0.75em;
+            text-align: center;
+        }
+        .help:before {
+            content: '\e813';
+            width: 1em;
+            padding-right: 0.75em;
+            text-align: center;
+        }
+        .username {
+            font-size: 1em;
+            text-transform: none;
+        }
+        :hover {
+            color: $primary-accent-color;
+        }
+    }
+}
+
+
+/*** Breakpoints ***/
+
+/* small-to-medium-only */
+@include respond-to(small-and-medium-only) {
+    header .show-menu > ul {
+         margin-top: -0.25em;
+    }
+}
+
+/* mid-size */
+@include respond-to(medium-up) {
+}
+
+/* large-size */
+@include respond-to(large-up) {
+    header {
+        text-align: left;
+        #logo {
+            width: auto;
+            box-sizing: border-box;
+            height: 100%;
+            margin: 0 1em 0 0;
+            padding: 0.25em;
+            background: transparent;
+            img { display: block; }
+        }
+        .show-menu > ul {
+            display: inline;
+            right: auto;
+            left: 0;
+            position: absolute;
+            top: $header-height;
+        }
+        .menu {
+            height: $menu-height;
+            ul li ul li a { 
+                background-color: $header-color;
+                padding-left: 1em;
+            }
+            &.main-menu .menu-title:before, 
+            &.account-menu .menu-title:before, 
+            &.main-menu .home:before {
+                content: none;
+            }
+            &.main-menu, &.account-menu {
+                display: inline-block;
+                .menu-title { position: initial; }
+            }
+            &.main-menu {
+                > .menu-title { display: none; }
+                > ul, 
+                &.show-menu > ul, 
+                > ul > li {
+                    display: inline-block;
+                    position: relative;
+                    top: 0;
+                    > a {
+                        width: auto;
+                        padding: 1em 1.8em;
+                    }
+                }
+            }
+            &.account-menu {
+                position: absolute;
+                right: 0;
+                top: 0;
+                > .menu-title {
+                    text-align: right;
+                    label { display: inline-block; }
+                }
+                > ul {
+                    left: auto;
+                    right: 0;
+                }
+            }
+            .username {
+                &:after {
+                    content: '\E87F';
+                    font-size: 1.25em;
+                    padding: 0 0.5em;
+                    vertical-align: middle;
+                }                
+            }
+        }
+    }
+}
+
+/* xlarge-size */
+@include respond-to(x-large-up) {
+}

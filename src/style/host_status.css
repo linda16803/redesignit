@@ -1,0 +1,172 @@
+li, ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+.status label,
+.status span {
+  display: none; }
+
+.status:before {
+  font-family: "pronghorn-font";
+  content: '\e846'; }
+
+.status.online:before {
+  color: #10dc4f; }
+
+.status.offline:before {
+  color: #e11845; }
+
+.status.unknown:before {
+  content: '\e848';
+  color: #999; }
+
+.restButtonContainer {
+  text-align: center;
+  display: block; }
+
+.graphs, .core, .system {
+  vertical-align: top;
+  box-sizing: border-box;
+  border: solid 1px #999;
+  border-radius: 0.5em;
+  padding: 1em;
+  margin: 0 0  0.5em 0; }
+  .graphs h2, .core h2, .system h2 {
+    margin: 0 0 0.5em 0;
+    text-align: center; }
+
+.graphs div.graph {
+  padding: 0.25em 1em; }
+.graphs div.pie-graph {
+  padding: 0.25em 20%; }
+
+.graph label {
+  text-align: center;
+  display: block; }
+
+.overview .set div {
+  vertical-align: top;
+  display: inline-block;
+  padding: 0.1em 0.25em; }
+.overview .set .label {
+  text-align: right;
+  font-weight: bold;
+  width: 60%; }
+.overview .set .value {
+  width: 40%; }
+
+.value {
+  overflow: hidden; }
+
+.list > h2 {
+  display: inline-block;
+  margin-right: 2em; }
+
+table.responsive .actions button {
+  margin: 0 0.25em; }
+
+button.run:before, button.download:before {
+  margin-right: 0.25em; }
+
+.resetButtonContainer {
+  text-align: center;
+  display: block; }
+
+/*** Breakpoints ***/
+/* mid-size */
+@media screen and (min-width: 26em) {
+  .graphs div.graph {
+    display: inline-block;
+    width: 50%;
+    padding: 0.25em 1em; }
+  .graphs div.pie-graph {
+    display: inline-block;
+    width: 50%;
+    padding: 0.25em 14%; }
+
+  .overview {
+    width: 100%; }
+    .overview label {
+      font-weight: bold; }
+    .overview .core, .overview .system {
+      position: relative; }
+      .overview .core table, .overview .system table {
+        width: 100%; }
+    .overview .core .details, .overview .core .memory, .overview .core .cpu {
+      display: inline-block;
+      vertical-align: top; }
+    .overview .core .details {
+      width: 26%; }
+    .overview .core .memory {
+      width: 37%; }
+    .overview .core .cpu {
+      width: 37%; }
+    .overview .system .versions, .overview .system .details {
+      display: inline-block;
+      vertical-align: top; }
+    .overview .system .versions {
+      width: 40%; }
+      .overview .system .versions .value {
+        word-break: break-all; }
+    .overview .system .details {
+      width: 60%; }
+      .overview .system .details .label {
+        width: 20%; }
+      .overview .system .details .value {
+        width: 80%; } }
+/* large-size */
+@media screen and (min-width: 50em) {
+  .workspace {
+    padding: 1em; }
+
+  .graphs div.graph {
+    display: inline-block;
+    width: 28%;
+    padding: 0.25em 1em; }
+  .graphs div.pie-graph {
+    display: inline-block;
+    width: 16%;
+    padding: 0.25em 1em; }
+
+  .graphs div {
+    vertical-align: top; }
+
+  .overview {
+    display: flex; }
+    .overview .core {
+      width: 50%; }
+    .overview .system {
+      width: 50%;
+      margin-left: 0.5em; }
+    .overview .core button {
+      position: absolute;
+      font-size: 0.75em;
+      top: 0.75em;
+      right: 0.75em; }
+
+  .applications table td:nth-child(1), .applications table th:nth-child(1) {
+    width: 9.5em;
+    text-align: center; }
+
+  .adapters table td:nth-child(1), .adapters table th:nth-child(1) {
+    width: 4em;
+    text-align: center; }
+  .adapters table td:nth-child(2), .adapters table th:nth-child(2) {
+    width: 5em;
+    text-align: center; }
+
+  .form-actions {
+    padding: 1em; } }
+/* large-size */
+.cpu-freeze-container button label {
+  display: none; }
+
+.cpu-freeze-container button {
+  padding: 5px; }
+
+.cpu-freeze-container {
+  float: right;
+  overflow: absolute; }
+
+/*# sourceMappingURL=host_status.css.map */

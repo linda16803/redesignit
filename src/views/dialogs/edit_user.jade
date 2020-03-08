@@ -1,0 +1,28 @@
+md-dialog(aria-label="Edit User" style="width:350px; height:400px")
+	md-toolbar
+		div.md-toolbar-tools
+			h2 {{'%EDIT_USER%' | translate}}
+			span(flex)
+	form(name="form")
+		md-input-container()
+			label {{'%USERNAME%' | translate}}
+			input(readonly ng-model="currentUser.username" name="username" ng-pattern="/^[a-zA-Z0-9][a-zA-Z0-9]{3,11}$/" ng-minlength="5" ng-maxlength="12" required)
+			div(ng-messages="form.username.$invalid" ng-show="form.username.$invalid")
+				div(ng-message) {{'%LENGTH_RULE_5-12%' | translate}}
+		md-input-container()
+			label {{'%PASSWORD%' | translate}}
+			input(autofocus type="password" ng-model="editUserPassword" name="password" ng-pattern="/^(?=.*[!@#$_])(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])[a-zA-z0-9!@#$_]{4,39}$/" ng-minlength="8" ng-maxlength="40" required)
+			div(ng-messages="form.password.$invalid" ng-show="form.password.$error.maxlength || form.password.$error.minlength || form.password.$error.required")
+				div(ng-message) {{'%LENGTH_RULE_8-40%' | translate}}
+			div(ng-messages="form.password.$invalid.pattern" ng-show="form.password.$error.pattern || form.password.$error.required")
+				span(ng-message) {{'%PASSWORD_RULES%'  | translate}}
+
+		md-input-container()
+			label {{'%VERIFY_PASSWORD%' | translate}}
+			input(type="password" ng-model="editUserPasswordVerify" name="passwordVerify" compare-to="editUserPassword" required)
+			div(ng-messages='form.passwordVerify.$invalid' ng-show="form.passwordVerify.$error.required || form.passwordVerify.$invalid")
+				div(ng-message) {{'%PASSWORDS_NO_MATCH%' | translate}}
+
+	div(style="position:absolute; bottom: 0px" class="md-actions" layout="row")
+		md-button(style="margin-right:10px" ng-click="cancel()" class="md-raised") {{'%CANCEL%' | translate}}
+		md-button(style="margin-left:10px" ng-click="save()" class="md-raised md-warn" ng-disabled="form.$invalid") {{'%SAVE%' | translate}}

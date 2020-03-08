@@ -1,0 +1,16 @@
+md-dialog(aria-label="Add Property" style="height:550px;width:500px")
+    md-toolbar(style="height:80px")
+        div.md-toolbar-tools
+        h2(flex style="padding:10px;") {{'%ADD_PROPERTY%' | translate}}
+    form(name="propertyForm" style="padding:10px;")
+        md-input-container()
+          label {{'%NAME%' | translate}}
+          input(autofocus name="newPropertyKey" ng-model="newPropertyKey" ng-minlength="3" ng-pattern="/^[a-zA-Z0-9][a-zA-Z0-9]{2,19}$/" required)
+          div(ng-messages="propertyForm.newPropertyKey.$invalid" ng-show="propertyForm.newPropertyKey.$invalid")
+            div(ng-message) {{'%LENGTH_RULE_3-20%' | translate}}
+        md-input-container(style="padding:2px;")
+          label {{'%PROPERTIES%' | translate}}
+          textarea(aria-label="Properties" style="padding: 10px;height:200px" rows="12" cols="20" ng-trim="false" ng-model="newPropertyTextArea.text")
+        div(style="position:absolute; bottom: 0px" class="md-dialog-actions" layout="row")
+          md-button(ng-click="add()" class="md-raised md-warn"  ng-disabled="propertyForm.$invalid") {{'%ADD%' | translate}}
+          md-button(ng-click="cancel()" class="md-raised") {{'%CANCEL%' | translate}}

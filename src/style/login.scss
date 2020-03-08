@@ -1,0 +1,96 @@
+@import 'variables';
+
+body {
+	background: $background-color-reverse;
+    font-family: $font-family;
+}
+
+.copyright {
+	color: $copyright-color;
+}
+
+.login-panel { 
+    text-align: center; 
+    padding: 1em; 
+
+    #logo img {
+        max-height: 22em;
+        max-width: 80%;
+    }
+}
+
+.alertDiv {
+  background: #F05E22;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.alertLabel {
+  color: #ffff;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  text-align: center;
+}
+
+#login_form {
+  padding: 0 1em;
+  margin: 0;
+    .form-field {
+        text-align: left;
+        margin-top: 1.5em;
+    }
+    button { width: 100%; }
+    .form-field label { display: none; }
+    input { 
+        width: 100%;
+        border-color: $border-color-reverse; 
+        border-width: 0 0 1px;
+        color: $data-color-reverse;
+        font-size: 1.2em;
+        line-height: 1.4em;
+        padding: 2px 2px 1px;
+        &:focus {
+            border-color: $border-color-focus;
+        }
+    }
+}
+
+::-webkit-input-placeholder {
+  color: $border-color-focus;
+}
+:-moz-placeholder { 
+  color: $border-color-focus;
+}
+::-moz-placeholder { 
+  color: $border-color-focus;
+}
+:-ms-input-placeholder {  
+  color: $border-color-focus;
+}
+
+#output_message {
+    h3 { color: $secondary-accent-color; }
+}
+
+
+/*** Breakpoints ***/
+
+/* mid-size */
+@include respond-to(medium-up) {
+  .login-panel { padding: 2em; }
+  #login_form { 
+    display: inline-block;
+    width: 18em;
+  }
+}
+
+/* large-size */
+@include respond-to(large-up) {
+  .login-panel { padding: 3em; }
+}
+
+/* xlarge-size */
+@include respond-to(x-large-up) {
+  .login-panel #logo img {
+    max-height: 32em;
+  }
+}

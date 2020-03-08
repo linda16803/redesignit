@@ -1,0 +1,126 @@
+/* * * * * * * * * * * * * * * * * */
+/* * *   Not sure where the    * * */
+/* * *   below is used yet.    * * */
+/* * *   Consider removing.    * * */
+/* * * * * * * * * * * * * * * * * */
+/* This sets the hover-over item color so it's visible before you select */
+/* Default selection color when selecting items from md-list-items */
+.selected {
+  background: lightgrey; }
+
+/* This fixes the spacing when using md-list-items so the are node so "tall" */
+/* Imported from Angular Material to keep the styling the same while we passively extract it */
+html, body {
+  min-height: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+body {
+  margin: 0;
+  padding: 0; }
+
+html, body {
+  background: white none repeat scroll 0 0;
+  color: rgba(0, 0, 0, 0.87);
+  height: 100%;
+  position: relative; }
+
+button, select, html, textarea, input {
+  font-family: Roboto,"Helvetica Neue",sans-serif; }
+
+input[type="reset"], input[type="submit"], html input[type="button"], button {
+  cursor: pointer; }
+
+select, button, textarea, input {
+  vertical-align: baseline; }
+
+.page {
+  height: 100%; }
+
+.content {
+  height: calc(100% - 3em); }
+
+.title-bar {
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+  padding: 0.2em 1em;
+  min-height: 2.5em;
+  background: #0094D9; }
+  .title-bar .title {
+    display: inline-block;
+    margin: 0.25em 1em 0.25em 0.25em;
+    padding: 0;
+    vertical-align: middle;
+    min-height: 1.25em; }
+  .title-bar .title,
+  .title-bar .toggle-selector label {
+    color: rgba(255, 255, 255, 0.87); }
+  .title-bar input, .title-bar button {
+    display: inline-block;
+    margin: 0.05em 0.5em; }
+  .title-bar .toggle-selector {
+    vertical-align: middle; }
+  .title-bar input {
+    border: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 0.25em;
+    padding: 0.2em 0.5em;
+    vertical-align: middle; }
+  .title-bar .form-actions {
+    display: inline-block;
+    margin: 0; }
+  .title-bar button:not([disabled]),
+  .title-bar button:not([disabled]):active {
+    padding: 0.25em 1em;
+    box-shadow: none; }
+    .title-bar button:not([disabled]).close,
+    .title-bar button:not([disabled]):active.close {
+      background: transparent;
+      color: white;
+      margin: 0.0em;
+      margin-left: 0.5em;
+      padding: 0.25em 0.5em; }
+    .title-bar button:not([disabled]).save, .title-bar button:not([disabled]).preview, .title-bar button:not([disabled]).clone, .title-bar button:not([disabled]).settings, .title-bar button:not([disabled]).clone,
+    .title-bar button:not([disabled]):active.save,
+    .title-bar button:not([disabled]):active.preview,
+    .title-bar button:not([disabled]):active.clone,
+    .title-bar button:not([disabled]):active.settings,
+    .title-bar button:not([disabled]):active.clone {
+      background: #eee none repeat scroll 0 0;
+      box-shadow: none;
+      color: #000000;
+      min-height: initial; }
+    .title-bar button:not([disabled]).primary-action.save label,
+    .title-bar button:not([disabled]):active.primary-action.save label {
+      display: initial; }
+    .title-bar button:not([disabled]).secondary-action,
+    .title-bar button:not([disabled]):active.secondary-action {
+      padding: 0.25em 0.5em; }
+
+.workspace {
+  padding: 0.5em; }
+
+div, .workspace {
+  box-sizing: border-box; }
+
+/*** Breakpoints ***/
+/* small-to-medium-only */
+@media screen and (min-width: 0em) and (max-width: 50em) {
+  .title-bar .title {
+    vertical-align: top; }
+  .title-bar .form button.close,
+  .title-bar .actions button.close {
+    position: absolute;
+    top: 0;
+    right: 0; } }
+/* large-size */
+@media screen and (min-width: 50em) {
+  .title-bar .form,
+  .title-bar .actions {
+    display: inline-block;
+    float: right; } }
+
+/*# sourceMappingURL=layout.css.map */

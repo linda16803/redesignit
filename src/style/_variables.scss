@@ -1,0 +1,108 @@
+
+$primary-accent-color: #0094D9;
+$secondary-accent-color: #F05E22;
+$link-color: $primary-accent-color;
+$color-pass: #10dc4f;
+$color-fail: #e11845;
+$border-color: rgba(0, 0, 0, 0.12);
+$border-color-reverse: rgba(0, 0, 0, 0.12);
+$border-color-focus: rgba(255, 255, 255, 0.7);
+$border-color-focus-reverse: rgba(255, 255, 255, 0.7);
+$background-color: #fff;
+$background-color-reverse: rgba(55,55,55,0.8);
+$header-color: #2e2e2e;
+$button-color: #EEE;
+
+
+$label-color: #333;
+$label-color-reverse: #999;
+$text-color: rgba(0, 0, 0, 0.87);
+$text-color-reverse: rgba(255, 255, 255, 0.87);
+$data-color: rgba(0, 0, 0, 1);
+$data-color-reverse: rgba(255, 255, 255, 1);
+$copyright-color: #333;
+
+// Solid Colors
+$color-1: #0094D9;
+$color-2: #F05E22;
+$color-3: #10ac4f;
+$color-4: #7e62b2;
+$color-5: #ffe600;
+$color-6: #d11855;
+$color-7: #1127aa;
+$color-8: #935c2a;
+// Light Colors
+$color-1b: #9bd6ea;
+$color-2b: #ffc197;
+$color-3b: #89e0ac;
+$color-4b: #b7a1e2;
+$color-5b: #fff5ab;
+$color-6b: #f49fc1;
+$color-7b: #819ccc;
+$color-8b: #ccb1a2;
+
+$color-online: $color-pass;
+$color-offline: $color-fail;
+
+$input-background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+
+$font-family: Roboto,"Helvetica Neue",sans-serif;
+
+// Header
+$header-height: 3em;
+$menu-height: $header-height;
+
+// Misc
+$action-bar-height: 2.5em;
+
+
+
+// Breakpoints
+$breakpoint-medium: 26em;
+$breakpoint-large: 50em;
+$breakpoint-x-large: 92em;
+
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == "small-up" {
+    @media screen and (min-width: 0em) {
+      @content;
+    }
+  }
+  @else if $breakpoint == "medium-up" {
+    @media screen and (min-width: $breakpoint-medium) {
+      @content;
+    }
+  }
+  @else if $breakpoint == "large-up" {
+    @media screen and (min-width: $breakpoint-large) {
+      @content;
+    }
+  }
+  @else if $breakpoint == "x-large-up" {
+    @media screen and (min-width: $breakpoint-x-large) {
+      @content;
+    }
+  }
+  
+  @else if $breakpoint == "small-only" {
+    @media screen and (min-width: 0em) and (max-width: $breakpoint-medium) {
+      @content;
+    }
+  }
+  @else if $breakpoint == "medium-only" {
+    @media screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+      @content;
+    }
+  }
+  @else if $breakpoint == "large-only" {
+    @media screen and (min-width: $breakpoint-large) and (max-width: $breakpoint-x-large) {
+      @content;
+    }
+  }
+  @else if $breakpoint == "small-and-medium-only" {
+    @media screen and (min-width: 0em) and (max-width: $breakpoint-large) {
+      @content;
+    }
+  }
+}

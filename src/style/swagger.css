@@ -1,0 +1,9 @@
+/* Hide the pesky "try it out" button in swagger's ui */
+.try-out__btn, .url {
+  display: none; }
+
+.information-container {
+  text-align: center; }
+
+h2 {
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
