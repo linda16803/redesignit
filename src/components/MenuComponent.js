@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
 import DishDetail from './DishDetailComponents'
+import CardFooter from 'reactstrap/lib/CardFooter';
 
 class Menu extends Component {
 
@@ -21,17 +22,24 @@ class Menu extends Component {
     render() {
         const menu = this.props.dishes.map((dish) => {
           return (
-            <div key={dish.id} className='col-2 '>
+            <div key={dish.id} className='col-2 spacer5 '>
                  <Card className="text-center" onClick={() => this.onSelectedDish(dish)} >
-                       <CardImg width="100%" src={dish.image} alt={dish.name} />
+                 
+                       <CardImg className="img" width="50%" src={dish.image} alt={dish.name} />
                        
-                    <CardTitle >{dish.name}</CardTitle>
+                    <CardTitle className="backgroundcolor">{dish.name}</CardTitle>
+                    
                 </Card>
+                
                 </div>
         );
        });
         return (
             <div className="container">
+                <div className="row">
+                <div className='col-12 with-margin'></div>
+                </div>
+            
                 <div className="row">
                     {menu}
                 </div>

@@ -3,7 +3,7 @@ export const CONFIG =
         {
         id: 0,
         name:'Upload',
-        image: 'assets/images/pro1.png',
+        image: 'assets/images/provisioner.jpg',
         description:'A unique combination of Indian Uthappam (pancake) ].',
         comments: []
            
@@ -11,7 +11,7 @@ export const CONFIG =
          {
             id: 2,
             name:'users',
-            image: 'assets/images/broadcast.jpg',
+            image: 'assets/images/service.jpg',
             description:'A unique combination of Indian Uthappam (pancake) .',
             comments: []
                
@@ -19,7 +19,7 @@ export const CONFIG =
         {
             id: 3,
             name:'API',
-            image: 'assets/images/pro1.png',
+            image: 'assets/images/workflow.jpg',
             description:'A unique combination of Indian Uthappam , .',
             comments: []
                    
@@ -27,14 +27,14 @@ export const CONFIG =
         {
             id: 4,
             name:'History',
-            image: 'assets/images/pro1.png',
+            image: 'assets/images/connection.jpg',
             description:'A unique combination of Indian Uthappam  ',            
             comments: []
                 },
          {
             id: 5,  
             name:'mongo',
-            image: 'assets/images/phone1.png',
+            image: 'assets/images/queue.jpg',
             description:'A unique combination of Indian Uthappam .',
             comments: [
                 

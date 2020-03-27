@@ -23,3 +23,25 @@
     color: black;
     font-size: 1.5em;
 }
+
+.backgroundcolor{
+    background-color: cadetblue;
+    
+}
+
+.img {
+    
+    float:  center;
+    width:  100px;
+    height: 100px;
+    margin-bottom: 20px;
+    
+}
+
+.with-margin {
+    margin-bottom: 30px;  
+}
+
+.spacer5 {
+    height: 10px;
+  }

@@ -1,0 +1,20 @@
+{
+  "name": "@com.att.ampl/ecompsystem",
+  "version": "0.0.31",
+  "main": "cog.js",
+  "author": {
+    "name": "ATT"
+  },
+  "dependencies": {},
+  "deprecated": false,
+  "description": "Application to support external system integration",
+  "devDependencies": {},
+  "engines": {
+    "node": ">=6.11.1"
+  },
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://codecloud.web.att.com/projects/ST_LYNKIT/repos/ecompsystem/browse"
+  }
+}
