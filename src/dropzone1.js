@@ -28,4 +28,4 @@ function MyDropzone() {
   )
 }
 
-export default Upload;
+export default MyDropzone;
