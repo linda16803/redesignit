@@ -1,5 +1,11 @@
+@import url('https://rsms.me/inter/inter.css');
+html { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  html { font-family: 'Inter var', sans-serif; }
+}
+
 .row-header{
-    background-color: #334EFF;
+    background-color: rgb(108, 163, 236);
     margin:0px auto;
     padding:8px;
     color: white;
@@ -45,3 +51,21 @@
 .spacer5 {
     height: 10px;
   }
+
+.uploadBox {
+  color: blue;
+  text-align: center;
+  box-sizing: border-box;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15);
+  float: center;
+  width: 80%;
+  height: 50%;
+  padding: 1em;
+  background: white;
+  margin-top: 10%;
+  margin-bottom: 4%;
+}
+
+.uploadBox:hover {
+  cursor: pointer;
+}
