@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Upload from './Upload';
+import MyDropZone from './dropzone1';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './index.css';
 import './App.css';
 
-ReactDOM.render(<Upload />, document.getElementById('upload'));
+ReactDOM.render(<MyDropZone />, document.getElementById('upload'));
 
 
 // If you want your app to work offline and load faster, you can change
