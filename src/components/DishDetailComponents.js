@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardBody, CardText, CardTitle } from 'reactstrap';
 
-
 class DishDetail extends Component {
-
     renderComments(comments) {
         if (comments == null) {
             return (<div></div>)
@@ -43,7 +41,7 @@ class DishDetail extends Component {
                         <CardImg width="100%" src={dish.image} alt={dish.name} />
                         <CardBody>
                             <CardTitle>{dish.name}</CardTitle>
-                            <CardText>{dish.description}</CardText>
+                            <CardText width="100%">{dish.description}</CardText>
                         </CardBody>
                     </Card>
                 </div>
